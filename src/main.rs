@@ -2,6 +2,7 @@ use crate::router::Route;
 use dioxus::prelude::*;
 
 mod components;
+mod layout;
 mod router;
 mod views;
 

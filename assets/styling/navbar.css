@@ -1,16 +1,20 @@
 #navbar {
+  background-color: paleturquoise;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 #navbar a {
-  color: #ffffff;
+  color: black;
   margin-right: 20px;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-#navbar a:hover {
+#navbar a:hover,
+a:visited {
   cursor: pointer;
-  color: #91a4d2;
+  color: black;
 }
