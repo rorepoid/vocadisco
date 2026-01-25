@@ -16,12 +16,18 @@ pub fn Navbar() -> Element {
         div {
             id: "navbar",
             Link {
+                id: "logo",
                 to: Route::Home {},
-                "VocaDisco"
+                img {
+                    src: asset!("/assets/logo.png"),
+                    alt: "logo",
+                    "VocaDisco"
+                },
             }
             Link {
+                class: "new-channel-button",
                 to: Route::Channels,
-                "Crear nuevo canal!"
+                "Crear canal"
             }
         }
     }
