@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::views::{Blog, Home, Navbar};
+use crate::views::{Blog, Channel, Channels, Home, Navbar};
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -16,4 +16,8 @@ pub enum Route {
         // Fields of the route variant will be passed to the component as props. In this case, the blog component must accept
         // an `id` prop of type `i32`.
         Blog { id: i32 },
+        #[route("/channels")]
+        Channels,
+        #[route("/channels/:id")]
+        Channel { id: i32 }
 }

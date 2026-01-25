@@ -16,3 +16,9 @@ pub use blog::Blog;
 
 mod navbar;
 pub use navbar::Navbar;
+
+mod channels;
+pub use channels::Channels;
+
+mod channel;
+pub use channel::Channel;
