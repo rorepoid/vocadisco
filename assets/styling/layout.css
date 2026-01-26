@@ -6,7 +6,7 @@
     "hero"
     "player";
   grid-template-columns: 1fr;
-  grid-template-rows: 4rem 1fr 6rem;
+  grid-template-rows: 4rem 1fr minmax(0, auto);
 }
 
 #navbar {

@@ -1,4 +1,72 @@
 #player {
   height: 100%;
-  width: 100%;
+  width: 100dvw;
+  box-sizing: border-box;
+}
+
+#player iframe {
+  margin: 0;
+  padding: 0;
+  max-width: 100dvw;
+  box-sizing: border-box;
+}
+
+#player-controls {
+  height: 64px;
+  background-color: #f6f8f8;
+  border: 3px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.thumbnail-wrapper {
+  width: 48px;
+  height: 48px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 48px;
+  height: 27px;
+}
+
+.title {
+  width: calc(100% - 48px - 104px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  width: 104px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.paused-playing-wrapper {
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paused {
+  width: 24px;
+  height: 24px;
+}
+
+.next-track-wrapper {
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
