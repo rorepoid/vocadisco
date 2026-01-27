@@ -20,5 +20,5 @@ pub enum Route {
         #[route("/channels")]
         Channels,
         #[route("/channels/:id")]
-        Channel { id: i32 },
+        Channel { id: u32 },
 }

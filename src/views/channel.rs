@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn Channel(id: i32) -> Element {
+pub fn Channel(id: u32) -> Element {
     rsx! {
         div {
             "channel: {id}"

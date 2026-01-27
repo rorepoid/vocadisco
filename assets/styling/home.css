@@ -1,3 +1,36 @@
 #hero {
   height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+#hero ul {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+#hero a {
+  text-decoration: none;
+  color: initial;
+}
+
+#hero li {
+  list-style-type: none;
+  box-sizing: border-box;
+  border: 2px solid #90d2cc;
+  border-radius: 10px;
+  display: grid;
+  padding: 1rem;
+}
+
+#hero h3 {
+  margin: 0.1rem 0;
+}
+
+#hero .host,
+.participants {
+  color: #7d7e80;
+  font-size: 0.8rem;
 }
