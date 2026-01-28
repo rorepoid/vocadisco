@@ -44,7 +44,7 @@ pub fn Home() -> Element {
                             }
                             div {
                                 class: "participants",
-                                "{event.participants} participants"
+                                "{event.participants} participantes"
                             }
                         }
                     }

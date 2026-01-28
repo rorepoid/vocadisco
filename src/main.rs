@@ -17,6 +17,7 @@ fn main() {
 fn App() -> Element {
     rsx! {
         document::Link { rel: "icon", href: FAVICON }
+        document::Meta { lang: "en" }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
 
         Router::<Route> {}
