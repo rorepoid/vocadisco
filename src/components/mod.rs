@@ -6,4 +6,4 @@ mod navbar;
 pub use navbar::Navbar;
 
 mod player;
-pub use player::Player;
+pub use player::{Player, Video};

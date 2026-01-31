@@ -2,10 +2,11 @@ use dioxus::prelude::*;
 
 const CSS: Asset = asset!("/assets/styling/player.css");
 
-struct Video {
-    id: String,
-    title: String,
-    thumbnail_url: String,
+#[derive(Props, PartialEq, Clone)]
+pub struct Video {
+    pub id: String,
+    pub title: String,
+    pub thumbnail_url: String,
 }
 
 #[component]
@@ -15,80 +16,76 @@ pub fn Player() -> Element {
     let controls = 0;
     let iv_load_policy = 3;
 
-    let video = Video {
-        thumbnail_url: "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
-        title: "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV".to_string(),
-        id: "y3yyYYLyVzw".to_string(),
-    };
-
     rsx! {
-        document::Stylesheet { href: CSS }
-        div {
-            id: "player",
-            iframe {
-                width: "100%",
-                height: "minmax(100%, 315px)",
-                src: "https://www.youtube.com/embed/{video.id}?autoplay={autoplay}&enablejsapi={enablejsapi}&rel=0&controls={controls}&iv_load_policy={iv_load_policy}",
-                allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
-                allowfullscreen: true,
-                referrerpolicy: "strict-origin-when-cross-origin"
-            }
+        if let Some(track) = use_context::<Option<Video>>() {
+            document::Stylesheet { href: CSS }
             div {
-                id: "player-controls",
-                div {
-                    class: "thumbnail-wrapper",
-                    img {
-                        class: "thumbnail",
-                        src: "{video.thumbnail_url}"
-                    }
+                id: "player",
+                iframe {
+                    width: "100%",
+                    height: "minmax(100%, 315px)",
+                    src: "https://www.youtube.com/embed/{track.id}?autoplay={autoplay}&enablejsapi={enablejsapi}&rel=0&controls={controls}&iv_load_policy={iv_load_policy}",
+                    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+                    allowfullscreen: true,
+                    referrerpolicy: "strict-origin-when-cross-origin"
                 }
                 div {
-                    class: "title",
-                    span { "{video.title}" }
-                }
-                div {
-                    class: "controls",
+                    id: "player-controls",
                     div {
-                        class: "paused-playing-wrapper",
-                        // div {
-                        //     class: "paused",
-                        //     svg {
-                        //         xmlns: "http://www.w3.org/2000/svg",
-                        //         height:"24",
-                        //         width:"24",
-                        //         view_box:"0 0 24 24",
-                        //         style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
-                        //         path {
-                        //             d: "M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"
-                        //         }
-                        //     }
-                        // }
-                        div {
-                            class: "playing",
-                            svg {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                height:"24",
-                                width:"24",
-                                view_box:"0 0 24 24",
-                                style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
-                                path {
-                                    d: "M6.5 3A1.5 1.5 0 005 4.5v15A1.5 1.5 0 006.5 21h2a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 008.5 3h-2Zm9 0A1.5 1.5 0 0014 4.5v15a1.5 1.5 0 001.5 1.5h2a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0017.5 3h-2Z"
-                                }
-                            }
+                        class: "thumbnail-wrapper",
+                        img {
+                            class: "thumbnail",
+                            src: "{track.thumbnail_url}"
                         }
                     }
                     div {
-                        class: "next-track-wrapper",
+                        class: "title",
+                        span { "{track.title}" }
+                    }
+                    div {
+                        class: "controls",
                         div {
-                            class: "next-track",
-                            svg {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                height:"24",
-                                width:"24",
-                                view_box:"0 0 24 24",
-                                style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
-                                path {
-                                    d: "M20 20a1 1 0 001-1V5a1 1 0 00-2 0v14a1 1 0 001 1Zm-14.955-.226L18 12 5.045 4.228A1.35 1.35 0 003 5.386v13.23a1.35 1.35 0 002.045 1.158Z"
+                            class: "paused-playing-wrapper",
+                            // div {
+                            //     class: "paused",
+                            //     svg {
+                            //         xmlns: "http://www.w3.org/2000/svg",
+                            //         height:"24",
+                            //         width:"24",
+                            //         view_box:"0 0 24 24",
+                            //         style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
+                            //         path {
+                            //             d: "M5 4.623V19.38a1.5 1.5 0 002.26 1.29L22 12 7.26 3.33A1.5 1.5 0 005 4.623Z"
+                            //         }
+                            //     }
+                            // }
+                            div {
+                                class: "playing",
+                                svg {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    height:"24",
+                                    width:"24",
+                                    view_box:"0 0 24 24",
+                                    style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
+                                    path {
+                                        d: "M6.5 3A1.5 1.5 0 005 4.5v15A1.5 1.5 0 006.5 21h2a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 008.5 3h-2Zm9 0A1.5 1.5 0 0014 4.5v15a1.5 1.5 0 001.5 1.5h2a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0017.5 3h-2Z"
+                                    }
+                                }
+                            }
+                        }
+                        div {
+                            class: "next-track-wrapper",
+                            div {
+                                class: "next-track",
+                                svg {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    height:"24",
+                                    width:"24",
+                                    view_box:"0 0 24 24",
+                                    style: "pointer-events: none; display: inherit; width: 100%; height: 100%;",
+                                    path {
+                                        d: "M20 20a1 1 0 001-1V5a1 1 0 00-2 0v14a1 1 0 001 1Zm-14.955-.226L18 12 5.045 4.228A1.35 1.35 0 003 5.386v13.23a1.35 1.35 0 002.045 1.158Z"
+                                    }
                                 }
                             }
                         }
