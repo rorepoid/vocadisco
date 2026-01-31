@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 const CSS: Asset = asset!("/assets/styling/player.css");
 
 #[derive(Props, PartialEq, Clone)]
-pub struct Video {
+pub struct Track {
     pub id: String,
     pub title: String,
     pub thumbnail_url: String,
@@ -17,7 +17,7 @@ pub fn Player() -> Element {
     let iv_load_policy = 3;
 
     rsx! {
-        if let Some(track) = use_context::<Option<Video>>() {
+        if let Some(track) = use_context::<Option<Track>>() {
             document::Stylesheet { href: CSS }
             div {
                 id: "player",

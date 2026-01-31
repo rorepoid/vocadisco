@@ -1,4 +1,4 @@
-use crate::{components::Video, router::Route};
+use crate::{components::Track, router::Route};
 use dioxus::prelude::*;
 
 mod components;
@@ -15,8 +15,8 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    use_context_provider::<Option<Video>>(|| {
-        Some(Video {
+    use_context_provider::<Option<Track>>(|| {
+        Some(Track {
             thumbnail_url: "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
             title: "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV"
                 .to_string(),
