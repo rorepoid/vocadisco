@@ -2,6 +2,12 @@ use dioxus::prelude::*;
 
 const CSS: Asset = asset!("/assets/styling/player.css");
 
+struct Video {
+    id: String,
+    title: String,
+    thumbnail_url: String,
+}
+
 #[component]
 pub fn Player() -> Element {
     let autoplay = 1;
@@ -9,17 +15,20 @@ pub fn Player() -> Element {
     let controls = 0;
     let iv_load_policy = 3;
 
-    let thumbnail_url = "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg";
-    let title = "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV";
+    let video = Video {
+        thumbnail_url: "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
+        title: "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV".to_string(),
+        id: "y3yyYYLyVzw".to_string(),
+    };
 
     rsx! {
         document::Stylesheet { href: CSS }
         div {
             id: "player",
             iframe {
-                width: "560px",
-                height: "315px",
-                src: "https://www.youtube.com/embed/y3yyYYLyVzw?autoplay={autoplay}&enablejsapi={enablejsapi}&rel=0&controls={controls}&iv_load_policy={iv_load_policy}",
+                width: "100%",
+                height: "minmax(100%, 315px)",
+                src: "https://www.youtube.com/embed/{video.id}?autoplay={autoplay}&enablejsapi={enablejsapi}&rel=0&controls={controls}&iv_load_policy={iv_load_policy}",
                 allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
                 allowfullscreen: true,
                 referrerpolicy: "strict-origin-when-cross-origin"
@@ -30,12 +39,12 @@ pub fn Player() -> Element {
                     class: "thumbnail-wrapper",
                     img {
                         class: "thumbnail",
-                        src: "{thumbnail_url}"
+                        src: "{video.thumbnail_url}"
                     }
                 }
                 div {
                     class: "title",
-                    span { "{title}" }
+                    span { "{video.title}" }
                 }
                 div {
                     class: "controls",
