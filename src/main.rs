@@ -16,12 +16,11 @@ fn main() {
 #[component]
 fn App() -> Element {
     use_context_provider::<Option<Track>>(|| {
-        Some(Track {
-            thumbnail_url: "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
-            title: "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV"
-                .to_string(),
-            id: "y3yyYYLyVzw".to_string(),
-        })
+        Some(Track::new(
+            "y3yyYYLyVzw".to_string(),
+            "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV".to_string(),
+            "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
+        ))
     });
 
     rsx! {

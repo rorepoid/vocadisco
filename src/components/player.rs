@@ -4,18 +4,38 @@ const CSS: Asset = asset!("/assets/styling/player.css");
 
 #[derive(Props, PartialEq, Clone)]
 pub struct Track {
-    pub id: String,
-    pub title: String,
-    pub thumbnail_url: String,
+    id: String,
+    title: String,
+    thumbnail_url: String,
+}
+
+impl Track {
+    pub fn new(id: String, title: String, thumbnail_url: String) -> Self {
+        Self {
+            id,
+            title,
+            thumbnail_url,
+        }
+    }
+
+    fn src(&self) -> String {
+        let autoplay = 1;
+        let enablejsapi = 0;
+        let controls = 0;
+        let iv_load_policy = 3;
+
+        format!("https://www.youtube.com/embed/{}?autoplay={}&enablejsapi={}&rel=0&controls={}&iv_load_policy={}",
+            self.id,
+            autoplay,
+            enablejsapi,
+            controls,
+            iv_load_policy
+        )
+    }
 }
 
 #[component]
 pub fn Player() -> Element {
-    let autoplay = 1;
-    let enablejsapi = 0;
-    let controls = 0;
-    let iv_load_policy = 3;
-
     rsx! {
         if let Some(track) = use_context::<Option<Track>>() {
             document::Stylesheet { href: CSS }
@@ -24,7 +44,7 @@ pub fn Player() -> Element {
                 iframe {
                     width: "100%",
                     height: "minmax(100%, 315px)",
-                    src: "https://www.youtube.com/embed/{track.id}?autoplay={autoplay}&enablejsapi={enablejsapi}&rel=0&controls={controls}&iv_load_policy={iv_load_policy}",
+                    src: track.src(),
                     allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
                     allowfullscreen: true,
                     referrerpolicy: "strict-origin-when-cross-origin"
