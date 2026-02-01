@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::router::Route;
+use crate::{components::Navbar, router::Route};
 
 const CSS: Asset = asset!("/assets/styling/home.css");
 
@@ -30,6 +30,7 @@ pub fn Home() -> Element {
 
     rsx! {
         document::Stylesheet { href: CSS }
+        Navbar {}
         div {
             id: "hero",
             ul {

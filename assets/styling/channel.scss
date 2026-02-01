@@ -1,0 +1,117 @@
+$gray-color: #7d7e80;
+$green-color: #33c3b9;
+$white-color: #ffffff;
+
+#channel-view {
+  .insights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1rem;
+
+    > div {
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      padding: 1rem;
+      background-color: $white-color;
+
+      > h2 {
+        color: $gray-color;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .listeners {
+        font-size: 1.5rem;
+        color: $green-color;
+        font-weight: bold;
+      }
+
+      .remaining {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .playlist {
+    display: grid;
+    grid-template-areas:
+      "up-next shuffle"
+      "tracks tracks";
+    justify-content: space-between;
+
+    > h2 {
+      grid-area: up-next;
+      margin: 0 1rem;
+    }
+
+    > span {
+      grid-area: shuffle;
+      margin: 0 1rem;
+      align-self: center;
+      justify-self: end;
+    }
+
+    > ol {
+      grid-area: tracks;
+      list-style-type: none;
+      padding: 0;
+      display: grid;
+      gap: 0.3rem;
+
+      .item {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 64px 1fr 20px;
+        background-color: $white-color;
+        border-bottom: 1px solid $gray-color;
+
+        > img {
+          width: 64px;
+          height: 64px;
+          align-self: center;
+        }
+
+        > .data {
+          padding: 0 1rem;
+
+          > .title {
+            margin: 0;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+          }
+
+          > .credits {
+            display: block;
+            color: #7d7e80;
+            font-size: 0.8rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+          }
+
+          > .added-by {
+            display: inline-block;
+            background-color: #eaf8f7;
+            border: 2px solid #d2f2f0;
+            border-radius: 1rem;
+            padding: 0 0.5rem;
+            color: $green-color;
+            font-size: 0.8rem;
+          }
+        }
+
+        > .options {
+          align-self: center;
+        }
+      }
+    }
+  }
+}
