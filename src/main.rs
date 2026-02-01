@@ -7,7 +7,7 @@ mod router;
 mod views;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
-const MAIN_CSS: Asset = asset!("/assets/styling/main.css");
+const MAIN_CSS: Asset = asset!("/assets/styling/main.scss");
 
 fn main() {
     dioxus::launch(App);

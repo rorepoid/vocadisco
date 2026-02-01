@@ -1,0 +1,63 @@
+@use "variables";
+
+#channel-navbar {
+  background-color: #fdfefe;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover,
+  a:visited {
+    cursor: pointer;
+  }
+
+  .back-button img {
+    width: 25px;
+    height: 25px;
+    margin: 0 0.5rem;
+  }
+
+  #channel-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.2rem;
+      margin: 0;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      text-overflow: ellipsis;
+    }
+
+    span {
+      color: variables.$color-gray;
+      font-size: variables.$font-size-small;
+    }
+  }
+
+  .add-new-people {
+    width: 2rem;
+    padding: 0.5rem;
+    background-color: variables.$green-color;
+    border-radius: 5px;
+    color: #d2ffff;
+  }
+
+  .add-new-people::after {
+    content: "+ ";
+  }
+}
