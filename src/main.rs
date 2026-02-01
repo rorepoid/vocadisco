@@ -1,4 +1,4 @@
-use crate::{components::Track, router::Route};
+use crate::{components::TrackPlayer, router::Route};
 use dioxus::prelude::*;
 
 mod components;
@@ -15,14 +15,8 @@ fn main() {
 
 #[component]
 fn App() -> Element {
-    use_context_provider::<Option<Track>>(|| {
-        Some(Track::new(
-            "y3yyYYLyVzw".to_string(),
-            "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV".to_string(),
-            "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
-            vec!["Mitchie M".to_string(), "Hatsune Miku".to_string()],
-        ))
-    });
+    let track = use_signal(|| None);
+    use_context_provider::<TrackPlayer>(|| TrackPlayer { track });
 
     rsx! {
         document::Link { rel: "icon", href: FAVICON }

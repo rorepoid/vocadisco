@@ -1,6 +1,9 @@
 use dioxus::prelude::*;
 
-use crate::{components::Track, views::channels::channel::Navbar};
+use crate::{
+    components::{Track, TrackPlayer},
+    views::channels::channel::Navbar,
+};
 
 const CSS: Asset = asset!("/assets/styling/channel.scss");
 
@@ -49,6 +52,10 @@ pub fn Channel(id: u32) -> Element {
                 ol {
                    for track in &tracks {
                        li { class: "item",
+                            onclick: {
+                                let track = track.clone();
+                                move |_| consume_context::<TrackPlayer>().track.set(Some(track.clone()))
+                            },
                            img {
                                src: "{track.thumbnail_url}"
                            }
