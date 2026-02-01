@@ -1,20 +1,22 @@
 use dioxus::prelude::*;
 
-const CSS: Asset = asset!("/assets/styling/player.css");
+const CSS: Asset = asset!("/assets/styling/player.scss");
 
 #[derive(Props, PartialEq, Clone)]
 pub struct Track {
-    id: String,
-    title: String,
-    thumbnail_url: String,
+    pub id: String,
+    pub title: String,
+    pub thumbnail_url: String,
+    pub credits: Vec<String>,
 }
 
 impl Track {
-    pub fn new(id: String, title: String, thumbnail_url: String) -> Self {
+    pub fn new(id: String, title: String, thumbnail_url: String, credits: Vec<String>) -> Self {
         Self {
             id,
             title,
             thumbnail_url,
+            credits,
         }
     }
 
@@ -31,6 +33,10 @@ impl Track {
             controls,
             iv_load_policy
         )
+    }
+
+    pub fn inline_credits(&self) -> String {
+        format!("{}", &self.credits.join(", "))
     }
 }
 

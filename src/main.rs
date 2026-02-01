@@ -20,6 +20,7 @@ fn App() -> Element {
             "y3yyYYLyVzw".to_string(),
             "【イケボでラップ、和楽器あり】初音ミク KAITO『大江戸ジュリアナイト』MV".to_string(),
             "https://i.ytimg.com/vi/y3yyYYLyVzw/hqdefault.jpg".to_string(),
+            vec!["Mitchie M".to_string(), "Hatsune Miku".to_string()],
         ))
     });
 
