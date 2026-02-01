@@ -20,7 +20,7 @@ fn App() -> Element {
 
     rsx! {
         document::Link { rel: "icon", href: FAVICON }
-        document::Meta { lang: "en" }
+        document::Meta { lang: "es" }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
 
         Router::<Route> {}
