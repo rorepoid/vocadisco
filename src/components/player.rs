@@ -1,7 +1,5 @@
 use dioxus::prelude::*;
 
-const CSS: Asset = asset!("/assets/styling/player.scss");
-
 #[derive(Clone, Copy)]
 pub struct TrackPlayer {
     pub track: Signal<Option<Track>>,
@@ -49,7 +47,6 @@ impl Track {
 pub fn Player() -> Element {
     rsx! {
         if let Some(track) = use_context::<TrackPlayer>().track.read().clone() {
-            document::Stylesheet { href: CSS }
             div {
                 id: "player",
                 iframe {

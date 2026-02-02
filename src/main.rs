@@ -8,6 +8,7 @@ mod views;
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/styling/main.scss");
+const PLAYER_CSS: Asset = asset!("/assets/styling/player.scss");
 
 fn main() {
     dioxus::launch(App);
@@ -22,6 +23,7 @@ fn App() -> Element {
         document::Link { rel: "icon", href: FAVICON }
         document::Meta { lang: "es" }
         document::Link { rel: "stylesheet", href: MAIN_CSS }
+        document::Link { rel: "stylesheet", href: PLAYER_CSS }
 
         Router::<Route> {}
     }
