@@ -1,4 +1,7 @@
-use crate::{components::TrackPlayer, router::Route};
+use crate::{
+    components::{Player, TrackPlayer},
+    router::Route,
+};
 use dioxus::prelude::*;
 
 mod components;
@@ -26,5 +29,6 @@ fn App() -> Element {
         document::Link { rel: "stylesheet", href: PLAYER_CSS }
 
         Router::<Route> {}
+        Player {}
     }
 }

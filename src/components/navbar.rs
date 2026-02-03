@@ -8,7 +8,7 @@ pub fn Navbar() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: CSS }
 
-        div {
+        nav {
             id: "navbar",
             Link {
                 id: "logo",

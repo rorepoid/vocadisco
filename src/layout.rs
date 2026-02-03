@@ -10,6 +10,5 @@ pub fn Layout() -> Element {
     rsx! {
         document::Stylesheet { href: CSS }
         Outlet::<Route> {}
-        Player {}
     }
 }

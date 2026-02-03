@@ -33,7 +33,7 @@ pub fn Channel(id: u32) -> Element {
         document::Link { rel: "stylesheet", href: CSS }
 
         Navbar {  }
-        div {
+        main {
             id: "channel-view",
             div { class: "insights",
                 div {

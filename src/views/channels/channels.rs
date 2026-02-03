@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 #[component]
 pub fn Channels() -> Element {
     rsx! {
-        div {
+        main {
             "Canales destacados"
         }
     }

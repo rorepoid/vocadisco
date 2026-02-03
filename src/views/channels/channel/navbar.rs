@@ -9,7 +9,7 @@ pub fn Navbar() -> Element {
     rsx! {
         document::Link { rel: "stylesheet", href: CSS }
 
-        div {
+        nav {
             id: "channel-navbar",
             Link {
                 class: "back-button",

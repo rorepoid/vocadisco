@@ -31,8 +31,8 @@ pub fn Home() -> Element {
     rsx! {
         document::Stylesheet { href: CSS }
         Navbar {}
-        div {
-            id: "hero",
+        main {
+            id: "home-view",
             ul {
                 for event in events {
                     Link {

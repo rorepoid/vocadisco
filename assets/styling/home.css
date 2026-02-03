@@ -1,22 +1,22 @@
-#hero {
+#home-view {
   height: 100%;
   width: 100%;
   padding: 1.5rem;
   box-sizing: border-box;
 }
 
-#hero ul {
+#home-view ul {
   padding: 1rem;
   display: grid;
   gap: 1rem;
 }
 
-#hero a {
+#home-view a {
   text-decoration: none;
   color: initial;
 }
 
-#hero li {
+#home-view li {
   list-style-type: none;
   box-sizing: border-box;
   border: 2px solid #90d2cc;
@@ -25,11 +25,11 @@
   padding: 1rem;
 }
 
-#hero h3 {
+#home-view h3 {
   margin: 0.1rem 0;
 }
 
-#hero .host,
+#home-view .host,
 .participants {
   color: #7d7e80;
   font-size: 0.8rem;

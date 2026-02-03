@@ -9,12 +9,13 @@
   grid-template-rows: 4rem 1fr minmax(0, auto);
 }
 
-#navbar {
+nav {
   grid-area: navbar;
 }
 
-#hero {
+main {
   grid-area: hero;
+  overflow: scroll;
 }
 
 #player {
