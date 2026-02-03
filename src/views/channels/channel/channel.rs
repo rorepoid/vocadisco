@@ -27,6 +27,42 @@ pub fn Channel(id: u32) -> Element {
                 "メグッポイド: Megpoid (GUMI)".to_string(),
             ],
         ),
+        Track::new(
+            "lS62a_r7dKo".to_string(),
+            "WHAT YOU WANT!".to_string(),
+            "https://i.ytimg.com/vi/lS62a_r7dKo/hqdefault.jpg".to_string(),
+            vec!["asteria - Topic".to_string()],
+        ),
+        Track::new(
+            "GYqbdR7GSio".to_string(),
+            "Why Do I".to_string(),
+            "https://i.ytimg.com/vi/GYqbdR7GSio/hqdefault.jpg".to_string(),
+            vec!["Set It Off - Topic".to_string()],
+        ),
+        Track::new(
+            "GC3_vIlIGYQ".to_string(),
+            "赤と白と黒の系譜/Genealogy of Red, White and Black【鏡音リン・レン、Lily feat. team OS】".to_string(),
+            "https://i.ytimg.com/vi/GC3_vIlIGYQ/hqdefault.jpg".to_string(),
+            vec![
+                "ひとしずく×やま△ （Hitoshizuku_Yamasankakkei）".to_string(),
+            ],
+        ),
+        Track::new(
+            "u5NBCGyuXA4".to_string(),
+            "夕立のりぼん feat.MAYU".to_string(),
+            "https://i.ytimg.com/vi/u5NBCGyuXA4/hqdefault.jpg".to_string(),
+            vec![
+                "MikitoP - Topic".to_string(),
+            ],
+        ),
+        Track::new(
+            "8Cm-7oCq9HA".to_string(),
+            "[MV] TAK - ‘PPPP’ feat. 初音ミク、重音テト".to_string(),
+            "https://i.ytimg.com/vi/8Cm-7oCq9HA/hqdefault.jpg".to_string(),
+            vec![
+                "TAK / DORIDORI".to_string(),
+            ],
+        ),
     ];
 
     rsx! {
