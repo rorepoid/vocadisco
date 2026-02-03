@@ -78,7 +78,7 @@ pub fn Channel(id: u32) -> Element {
                 }
                 div {
                     h2 { "Restante" }
-                    span { class: "remaining", "18 " }
+                    span { class: "remaining", {format!("{} ", tracks.len())} }
                     span { "canciones" }
                 }
             }
