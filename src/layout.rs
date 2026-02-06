@@ -1,6 +1,5 @@
 use dioxus::prelude::*;
 
-use crate::components::Player;
 use crate::router::Route;
 
 const CSS: Asset = asset!("/assets/styling/layout.css");
