@@ -8,7 +8,7 @@ edition = "2021"
 
 [dependencies]
 shared = { path = "../shared" }
-dioxus = { version = "0.7.1", features = ["router", "fullstack"] }
+dioxus = { version = "0.7.9", features = [ "router", "fullstack" ] }
 
 [features]
 default = ["web"]
