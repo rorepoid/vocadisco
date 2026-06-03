@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Miku's Monday Meetup",
+    "host": "Hatsune Miku",
+    "participants": 15
+  },
+  {
+    "id": 2,
+    "title": "World is mine",
+    "host": "Hatsune Miku",
+    "participants": 15
+  },
+  {
+    "id": 3,
+    "title": "GUMI's birthday",
+    "host": "Vocaloid community",
+    "participants": 15
+  }
+]

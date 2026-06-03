@@ -1,9 +1,11 @@
 use dioxus::prelude::*;
+use serde::Deserialize;
 
 use crate::{components::Navbar, router::Route};
 
 const CSS: Asset = asset!("/assets/styling/home.css");
 
+#[derive(Deserialize, Debug, Clone)]
 struct Event {
     id: u32,
     title: String,
@@ -11,22 +13,11 @@ struct Event {
     participants: u32,
 }
 
+const MOCK_DATA_JSON: &str = include_str!("../data/events.json");
+
 #[component]
 pub fn Home() -> Element {
-    let events = vec![
-        Event {
-            id: 1,
-            title: "Miku's Monday Meetup".to_string(),
-            host: "Hatsune Miku".to_string(),
-            participants: 15,
-        },
-        Event {
-            id: 2,
-            title: "World is Mine".to_string(),
-            host: "Hatsune Miku".to_string(),
-            participants: 15,
-        },
-    ];
+    let events: Vec<Event> = serde_json::from_str(MOCK_DATA_JSON).expect("No se pudo procesar el JSON");
 
     rsx! {
         document::Stylesheet { href: CSS }
