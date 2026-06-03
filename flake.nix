@@ -27,19 +27,15 @@
           extensions = [
             "rust-src"
             "rust-analyzer"
+            "rust-std"
           ];
-          targets = [ "wasm32-unknown-unknown" ]; # Importante para Dioxus Web
+          targets = [ "wasm32-unknown-unknown" ];
         };
 
-        # Librerías nativas necesarias para Linux (GTK, OpenSSL, etc.)
+        # Librerías nativas mínimas
         nativeBuildInputs = with pkgs; [
           pkg-config
           openssl
-          glib
-          gtk3
-          libsoup_3
-          webkitgtk_4_1
-          xdotool
         ];
       in
       {
@@ -47,14 +43,8 @@
           buildInputs = [
             rustToolchain
             pkgs.dioxus-cli
-            pkgs.nil
-            pkgs.nixd
-            pkgs.nixpkgs-fmt
           ]
           ++ nativeBuildInputs;
-
-          # Configuración para que el linker encuentre las librerías
-          LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath nativeBuildInputs;
         };
       }
     );
